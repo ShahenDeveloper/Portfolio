@@ -1,5 +1,4 @@
 import React from "react";
-import Grid from "@/components/Grid";
 import RecentProjects from "@/components/RecentProjects";
 import Clients from "@/components/Clients";
 import Experience from "@/components/Experience";
@@ -10,7 +9,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import { navItems } from "@/data";
 import dynamic from "next/dynamic";
-const DynamicComponent = dynamic(() => import('@/components/Grid'), {
+const Grid = dynamic(() => import('@/components/Grid'), {
   loading: () => <p>Loading...</p>, 
 });
 
@@ -20,8 +19,7 @@ const Home = async () => {
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
         <Hero />
-        {/* Directly rendering the components without Suspense */}
-        <DynamicComponent />
+        <Grid />
         <RecentProjects />
         <Clients />
         <Experience />
