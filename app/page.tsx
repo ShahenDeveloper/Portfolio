@@ -9,6 +9,10 @@ import { FloatingNav } from "@/components/ui/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import { navItems } from "@/data";
+import dynamic from "next/dynamic";
+const DynamicComponent = dynamic(() => import('@/components/Grid'), {
+  loading: () => <p>Loading...</p>, 
+});
 
 const Home = async () => {
   return (
@@ -17,7 +21,7 @@ const Home = async () => {
         <FloatingNav navItems={navItems} />
         <Hero />
         {/* Directly rendering the components without Suspense */}
-        <Grid />
+        <DynamicComponent />
         <RecentProjects />
         <Clients />
         <Experience />
